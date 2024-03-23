@@ -1,0 +1,3 @@
+Full Name: Yasin Solak
+Occupation: Developer
+Programming Language: Python
