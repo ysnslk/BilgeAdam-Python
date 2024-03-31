@@ -1,0 +1,3 @@
+Bill Name: ISKI || Total Amount: 24060.645000000004 || Create Date: 2024-03-31 17:54:06.757310
+Bill Name: OEDAS || Total Amount: 24060.645000000004 || Create Date: 2024-03-31 17:54:06.757310
+Bill Name: Esgaz || Total Amount: 24060.645000000004 || Create Date: 2024-03-31 17:54:06.757310
