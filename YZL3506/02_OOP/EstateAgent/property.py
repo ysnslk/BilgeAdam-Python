@@ -1,3 +1,5 @@
+
+
 from utilities import get_valid_input
 
 
@@ -8,23 +10,23 @@ class Property:
         self.square_feet = square_feet
 
     def display(self):
-        print(f'General Information\n'
-              f'===================='
+        print(f'General Informamtion\n'
+              f'====================\n'
               f'Square Feet: {self.square_feet}\n'
               f'Bedrooms: {self.bedrooms}\n'
-              f'Bathrooms: {self}\n')
+              f'Bathrooms: {self.bathrooms}\n')
 
-    def promp_init():
+    def prompt_init():
         return dict(
             square=input('Square Feet: '),
             bedrooms=input('Bedrooms: '),
             bathrooms=input('Bathrooms: ')
         )
 
-    promp_init = staticmethod(promp_init)
+    prompt_init = staticmethod(prompt_init)
 
 
-class Apartment(Property):
+class Apartmant(Property):
     def __init__(self, balcony='', laundry='', *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.laundry = laundry
@@ -33,19 +35,19 @@ class Apartment(Property):
     def display(self):
         super().display()
         print(f'Balcony: {self.balcony}\n'
-              f'Laundry: {self.laundry}\n')
+              f'Laundry: {self.laundry}')
 
     def prompt_init():
-        parent_init = Property.promp_init()
+        parent_init = Property.prompt_init()
 
         balcony = get_valid_input(
-            'Does apartment have a balcony',
-            ('yes', 'no')
+            input_question='Does apartmant have a balcony?',
+            valid_options=('yes', 'no')
         )
 
         laundry = get_valid_input(
-            'What laundry type do you prefer?',
-            ('yes', 'no')
+            input_question='What laundry type do you prefer?',
+            valid_options=('coin', 'credit card', 'none')
         )
 
         parent_init.update({
@@ -60,24 +62,31 @@ class Apartment(Property):
 
 class House(Property):
     def __init__(self, number_stories='', garage='', fenced='', pool='', *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.pool = pool
+        self.fenced = fenced
+        self.garage = garage
+        self.number_stories = number_stories
+
+    def display(self):
         super().display()
-        print(f'Number of stories: {self.number_stories}\n'
+        print(f'Number of Stories: {self.number_stories}\n'
               f'Fenced: {self.fenced}\n'
               f'Garage: {self.garage}\n'
               f'Pool: {self.pool}\n')
 
     def prompt_init():
-        parent_init = Property.promp_init()
+        parent_init = Property.prompt_init()
 
         number_stories = input('How many stories do you want?')
 
         garage = get_valid_input(
-            input_question='Do you want garage?',
-            valid_options=('yes', 'no')
+            input_question='Do you want to garage?',
+            valid_options=('attach', 'detached', 'none')
         )
 
         pool = get_valid_input(
-            input_question='Do you prefer to pool your house',
+            input_question='Do you prefer to pool your house?',
             valid_options=('yes', 'no')
         )
 
