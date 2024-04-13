@@ -5,7 +5,7 @@ from models import Category
 
 
 # region Connect to MongoDB
-conn = MongoClient('mongodb://localhost:27017')
+conn = MongoClient('mongodb://localhost:32768')
 
 db = conn['CRUD_db']
 
